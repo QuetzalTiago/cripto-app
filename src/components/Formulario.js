@@ -22,7 +22,7 @@ const Boton = styled.input`
   }
 `;
 
-const Formulario = () => {
+const Formulario = ({ guardarCriptomoneda, guardarMoneda }) => {
   const [listacripto, guardarCriptomonedas] = useState([]);
   const [error, guardarError] = useState(false);
 
@@ -53,7 +53,7 @@ const Formulario = () => {
 
   //utilizar useCriptomoneda
   const [criptomoneda, SelectCripto] = useCriptomoneda(
-    "Elige tu Criptomoneda",
+    "Elige tu Criptomoneda:",
     "",
     listacripto
   );
@@ -77,8 +77,10 @@ const Formulario = () => {
       guardarError(true);
     } else {
       guardarError(false);
+      //pasar datos a la API
+      guardarMoneda(moneda);
+      guardarCriptomoneda(criptomoneda);
     }
-    //pasar datos a la API
   };
 
   return (
