@@ -20,4 +20,5 @@ const Error = ({ mensaje }) => {
 Error.propTypes = {
   mensaje: PropTypes.string.isRequired,
 };
+
 export default Error;
