@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import styled from "@emotion/styled";
-import useMoneda from "../hooks/useMoneda";
 
 const Label = styled.label`
   font-family: "Bebas Neue", cursive;
@@ -36,11 +35,11 @@ const useCriptomoneda = (label, stateInicial, opciones) => {
       <Label>{label}</Label>
       <Select value={state} onChange={(e) => actualizarState(e.target.value)}>
         <Option>-Seleccione-</Option>
-        {/* {opciones.map((opcion) => (
-          <Option key={opcion.codigo} value={opcion.codigo}>
-            {opcion.nombre}
+        {opciones.map((opcion) => (
+          <Option key={opcion.CoinInfo.Id} value={opcion.CoinInfo.Name}>
+            {opcion.CoinInfo.FullName}
           </Option>
-        ))} */}
+        ))}
       </Select>
     </Fragment>
   );
